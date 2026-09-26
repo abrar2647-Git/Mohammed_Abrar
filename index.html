@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Abrar — Mechanical Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Mohammed Abrar, Mechanical Engineering student — Tool &amp; Die Making, CAD design, and manufacturing.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:        #FFFFFF;
+    --bg-page:      #F5F4F0;
+    --ink:          #111827;
+    --ink-soft:     #374151;
+    --ink-faint:    #6B7280;
+    --blue:         #2563EB;
+    --blue-dark:    #1D4ED8;
+    --blue-light:   #EFF6FF;
+    --border:       #E5E2DA;
+    --white:        #FFFFFF;
+
+    --font-display: 'Inter', sans-serif;
+    --font-body:    'Inter', sans-serif;
+    --font-mono:    'IBM Plex Mono', monospace;
+
+    --section-pad: clamp(64px, 10vw, 120px);
+    --edge-pad: clamp(20px, 6vw, 72px);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  
+  html, body{
+    overflow-x: clip;
+    scroll-behavior: smooth;
+  }
+
+  body{
+    background: #F5F4F0;
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  ::selection{ background: rgba(37, 99, 235, 0.18); color: var(--blue-dark); }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  /* ================= FULL-SCREEN PRELOADER ================= */
+  .preloader-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(245, 244, 240, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.6s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .preloader-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .preloader-spinner-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 44px;
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    border-radius: 100px;
+    box-shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
+  }
+
+  .spinner-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    border-top-color: #2563EB;
+    border-right-color: #60A5FA;
+    animation: ringSpin 1.8s linear infinite;
+  }
+
+  @keyframes ringSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .wrap{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: var(--edge-pad);
+    padding-right: var(--edge-pad);
+    overflow: visible;
+  }
+
+  /* ================= SLEEK LIQUID GLASS NAVBAR ================= */
+  .global-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 16px var(--edge-pad);
+    pointer-events: none;
+    transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.35s ease,
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .global-navbar.nav-hidden {
+    opacity: 0 !important;
+    transform: translateY(-24px) !important;
+    pointer-events: none !important;
+  }
+
+  .header-inner {
+    width: 92%;
+    max-width: 1040px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(245, 244, 240, 0.90) 100%);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border: 1px solid rgba(229, 226, 218, 0.95);
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    pointer-events: auto;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .global-navbar.is-scrolled .header-inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(15, 23, 42, 0.88) 100%);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: #111827;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .global-navbar.is-scrolled .brand-name {
+    color: #FFFFFF;
+  }
+
+  .nav-links-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-pill-link {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #4B5563;
+    padding: 6px 14px;
+    border-radius: 100px;
+    transition: all 0.25s ease;
+  }
+
+  .nav-pill-link:hover {
+    color: #111827;
+    background: rgba(17, 24, 39, 0.06);
+  }
+
+  .global-navbar.is-scrolled .nav-pill-link {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .global-navbar.is-scrolled .nav-pill-link:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 18px;
+    background: #111827;
+    border: 1px solid #111827;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 6px rgba(17, 24, 39, 0.1);
+    white-space: nowrap;
+  }
+
+  .nav-contact-btn:hover {
+    background: #2563EB;
+    border-color: #2563EB;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  }
+
+  .global-navbar.is-scrolled .nav-contact-btn {
+    background: #FFFFFF;
+    color: #0F172A;
+    border-color: #FFFFFF;
+  }
+
+  .global-navbar.is-scrolled .nav-contact-btn:hover {
+    background: #2563EB;
+    color: #FFFFFF;
+    border-color: #2563EB;
+  }
+
+  /* ================= HERO SECTION ================= */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: clamp(110px, 14vh, 150px) 0 clamp(40px, 6vh, 80px);
+    background: #F5F4F0;
+    overflow: hidden;
+  }
+
+  .hero-wrap {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    min-height: 520px;
+  }
+
+  .hero-inner{
+    position: relative;
+    z-index: 5;
+    max-width: 560px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .hero-bg-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  .hero-heading{
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(46px, 6.2vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: #111827;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.2s;
+  }
+
+  .hero-subtitle{
+    font-size: clamp(15.5px, 1.7vw, 18.5px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: #374151;
+    max-width: 460px;
+    margin-bottom: 34px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.4s;
+  }
+
+  .hero-pill-bar{
+    display: inline-flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    border-radius: 100px;
+    padding: 5px 6px 5px 22px;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.6s;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hero-pill-bar:hover{
+    border-color: #D1CDC2;
+    box-shadow: 0 16px 36px rgba(17, 24, 39, 0.1);
+  }
+
+  .hero-pill-text{
+    font-size: 14px;
+    font-weight: 500;
+    color: #4B5563;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .hero-pill-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #111827;
+    border: 1px solid #111827;
+    border-radius: 100px;
+    padding: 10px 22px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.15);
+  }
+
+  .hero-pill-btn:hover{
+    background: #2563EB;
+    border-color: #2563EB;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+  }
+
+  @media (max-width: 600px){
+    .hero-pill-bar{
+      flex-direction: column;
+      border-radius: 20px;
+      padding: 16px;
+      gap: 12px;
+      width: 100%;
+      align-items: stretch;
+      text-align: center;
+    }
+    .hero-pill-btn{
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @keyframes fadeSlideUp {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ================= SECTION SHELL ================= */
+  section.block{
+    position: relative;
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+    overflow: visible;
+  }
+
+  .section-head{
+    margin-bottom: 44px;
+    text-align: left;
+  }
+
+  .section-head h2{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -0.02em;
+    color: #111827;
+  }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.slide-left { transform: translateX(-40px); }
+  .reveal.scale-up { transform: scale(0.95); }
+
+  .in-view.reveal, .in-view .reveal{
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+
+  /* ================= CARDS & CONTAINERS ================= */
+  .glass-panel, .exp-card, .about-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 48px);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+  }
+  .glass-panel:hover, .exp-card:hover, .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(17, 24, 39, 0.08);
+    border-color: #D1CDC2;
+  }
+
+  /* ================= ABOUT ================= */
+  .about-card{
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .about-text p{
+    color: #374151;
+    font-size: clamp(16px, 1.8vw, 18px);
+    line-height: 1.8;
+  }
+  .about-text p + p{ margin-top: 20px; }
+
+  /* ================= 3D PERSPECTIVE SCROLL-DRIVEN STACKED CARDS (3 PROJECTS) ================= */
+  .services-3d-section {
+    position: relative;
+    height: 300vh;
+    background: #EFECE6;
+    border-top: 1px solid #E5E2DA;
+    border-bottom: 1px solid #E5E2DA;
+  }
+
+  .services-3d-sticky-viewport {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: clamp(50px, 7vh, 80px) var(--edge-pad) clamp(20px, 3vh, 35px);
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 860px;
+    margin-bottom: clamp(16px, 2.5vh, 32px);
+    flex-shrink: 0;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: #1D4ED8;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.12);
+  }
+
+  .services-header h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(26px, 3.8vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #111827;
+  }
+
+  /* 3D Stack Area Container (perspective: 2000px) */
+  .mdw-stacked-card-area {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    height: clamp(380px, 54vh, 480px);
+    margin: 0 auto;
+    perspective: 2000px;
+    -webkit-perspective: 2000px;
+    perspective-origin: center center;
+    transform-style: preserve-3d;
+  }
+
+  /* Individual 3D Card */
+  .card-3d-item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    padding: clamp(24px, 4vw, 44px);
+    color: #FFFFFF;
+    box-sizing: border-box;
+    transform-origin: center bottom;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity, filter;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15), 0 20px 48px rgba(15, 23, 42, 0.28);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(120%) rotateX(-32deg) scale(0.94);
+    opacity: 0;
+  }
+
+  .card-3d-item:first-child {
+    transform: translateY(0%) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+
+  /* Distinct Color Themes for the 3 Projects */
+  .card-3d-item.card-press {
+    background: linear-gradient(135deg, #1E40AF 0%, #1D4ED8 100%);
+    border: 1px solid rgba(147, 197, 253, 0.35);
+  }
+
+  .card-3d-item.card-fea {
+    background: linear-gradient(135deg, #C2410C 0%, #EA580C 100%);
+    border: 1px solid rgba(254, 215, 170, 0.35);
+  }
+
+  .card-3d-item.card-cfd {
+    background: linear-gradient(135deg, #0F766E 0%, #0D9488 100%);
+    border: 1px solid rgba(153, 246, 228, 0.35);
+  }
+
+  .card-grid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  @media (min-width: 992px) {
+    .card-grid-layout {
+      flex-direction: row;
+      align-items: center;
+      gap: 36px;
+    }
+    .card-left-col {
+      width: 58%;
+      flex-shrink: 0;
+    }
+    .card-right-col {
+      width: 42%;
+      flex-grow: 1;
+    }
+  }
+
+  .card-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card-badge-index {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 4px 12px;
+    border-radius: 8px;
+  }
+
+  .card-category-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+  }
+
+  .card-left-col h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+  }
+
+  .card-left-col p {
+    font-size: clamp(14px, 1.4vw, 15.5px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.94);
+    max-width: 540px;
+  }
+
+  .card-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 11px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    width: fit-content;
+    margin-top: 4px;
+  }
+
+  .card-cta-btn:hover {
+    background: #F8FAFC;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-right-col {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 20px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .panel-header-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+  }
+
+  .skills-pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .sub-tag-pill {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 5px 11px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    white-space: nowrap;
+  }
+
+  .metric-box {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 12px;
+    margin-top: 2px;
+  }
+
+  .metric-number {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .metric-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ================= ACADEMIC JOURNEY / EDUCATION ================= */
+  .timeline{
+    position: relative;
+    padding-left: 32px;
+    border-left: 2px solid #E5E2DA;
+  }
+  .tl-item{
+    position: relative;
+    padding-bottom: 44px;
+  }
+  .tl-item:last-child{ padding-bottom: 0; }
+  .tl-item::before{
+    content: "";
+    position: absolute;
+    left: -38px; top: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #F5F4F0;
+    border: 2.5px solid var(--blue);
+  }
+
+  .tl-tag{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tl-item h3{
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+
+  .tl-org{
+    font-size: 14px;
+    font-weight: 600;
+    color: #4B5563;
+    margin-bottom: 8px;
+  }
+
+  .tl-desc{
+    font-size: 14.5px;
+    color: #4B5563;
+    line-height: 1.6;
+  }
+
+  /* ================= EXPERIENCE ================= */
+  .exp-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-role h3{
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+
+  .exp-org{
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  .exp-dates{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #6B7280;
+    background: #FAF9F6;
+    border: 1px solid #E5E2DA;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  .exp-desc{
+    font-size: 15px;
+    color: #4B5563;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .sub-label{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6B7280;
+    margin-bottom: 12px;
+  }
+
+  .tag-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #111827;
+    background: #FAF9F6;
+    border: 1px solid #E5E2DA;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  .tag svg{
+    width: 14px;
+    height: 14px;
+    stroke: var(--blue);
+  }
+
+  /* ================= MODERN 2-TIER FOOTER ================= */
+  .modern-footer {
+    background: #EDEAE3;
+    border-top: 1px solid #E5E2DA;
+    padding-top: clamp(60px, 8vw, 96px);
+    position: relative;
+  }
+
+  .footer-cta-card {
+    background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.35) 0%, rgba(15, 23, 42, 0.98) 80%), #0F172A;
+    border-radius: 28px;
+    padding: clamp(38px, 6vw, 68px) clamp(24px, 5vw, 60px);
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(17, 24, 39, 0.2), 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: clamp(48px, 7vw, 76px);
+  }
+
+  .footer-cta-card h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-cta-card p {
+    font-size: clamp(14px, 1.6vw, 16px);
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 680px;
+    margin: 0 auto 34px;
+    line-height: 1.65;
+  }
+
+  .cta-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 13px 30px;
+    border-radius: 100px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-cta-primary:hover {
+    background: #F8FAFC;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .footer-bottom-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.3fr;
+    gap: 48px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #E5E2DA;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: #6B7280;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    font-size: 14.5px;
+    color: #4B5563;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    max-width: 340px;
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #9CA3AF;
+  }
+
+  .footer-nav-col h4, .footer-action-col h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: #111827;
+    margin-bottom: 18px;
+  }
+
+  .footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-list a {
+    font-size: 14.5px;
+    color: #4B5563;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-nav-list a:hover {
+    color: var(--blue);
+    transform: translateX(4px);
+  }
+
+  .footer-action-col p {
+    font-size: 14.5px;
+    color: #4B5563;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .footer-book-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: #111827;
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(17, 24, 39, 0.12);
+  }
+
+  .footer-book-btn:hover {
+    background: #2563EB;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
+  }
+
+  .footer-sub-bar {
+    padding: 24px 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #6B7280;
+  }
+
+  .scroll-top-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .scroll-top-btn:hover {
+    background: #111827;
+    color: #FFFFFF;
+    border-color: #111827;
+    transform: translateY(-3px);
+  }
+
+  .scroll-top-btn svg {
+    width: 18px; height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+
+  @media (max-width: 960px){
+    .hero {
+      min-height: 90vh;
+      min-height: 90svh;
+      padding: clamp(110px, 14vh, 130px) 0 50px;
+    }
+    .hero-wrap {
+      min-height: 480px;
+    }
+    .hero-bg-visual {
+      object-position: 65% center;
+    }
+  }
+
+  @media (max-width: 680px){
+    .hero {
+      min-height: auto;
+      padding: clamp(100px, 14vh, 120px) 0 40px;
+      flex-direction: column;
+    }
+    .hero-wrap {
+      min-height: auto;
+    }
+    .hero-bg-visual {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: cover;
+      object-position: center center;
+      margin: 20px 0 0 0;
+      opacity: 1 !important;
+    }
+  }
+
+  @media (max-width: 860px){
+    .mdw-stacked-card-area {
+      height: clamp(480px, 68vh, 600px);
+    }
+    .card-3d-item {
+      padding: 22px 18px;
+    }
+    .footer-bottom-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+
+  @media (max-width: 820px){
+    .global-navbar{ padding: 12px 16px !important; }
+    .header-inner{ width: 100% !important; padding: 8px 16px !important; }
+    .hero-heading{ font-size: clamp(34px, 8vw, 52px); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .hero-heading, .hero-subtitle, .hero-pill-bar { opacity: 1; transform: none; }
+    .services-3d-section { height: auto !important; }
+    .services-3d-sticky-viewport { position: static !important; height: auto !important; overflow: visible !important; }
+    .mdw-stacked-card-area { height: auto !important; display: flex; flex-direction: column; gap: 24px; }
+    .card-3d-item { position: static !important; transform: none !important; opacity: 1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FULL-SCREEN PRELOADER -->
+<div class="preloader-overlay" id="preloader">
+  <div class="preloader-spinner-container">
+    <div class="spinner-ring"></div>
+  </div>
+</div>
+
+<!-- ================= SLEEK LIQUID GLASS NAVBAR ================= -->
+<header class="global-navbar" id="mainHeader">
+  <div class="header-inner">
+    <a href="index.html" class="brand-name">Mohammed Abrar</a>
+    <div class="nav-links-right">
+      <a href="#about" class="nav-pill-link">About</a>
+      <a href="portfolio.html" class="nav-pill-link">Portfolio</a>
+      <a href="#contact" class="nav-contact-btn">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+  <!-- Full Aerodynamic CFD Simulation Background Visual (centered & fitted to screen) -->
+  <img src="assets/images/hero_f1_cfd_full.png" alt="Aerodynamic CFD Simulation - F1 Streamlines" class="hero-bg-visual" />
+
+  <div class="wrap hero-wrap">
+    <div class="hero-inner">
+      <h1 class="hero-heading">Designed for<br>the<br>Real World.</h1>
+      <p class="hero-subtitle">Mechanical CAD &amp; Tooling Engineer. Turning digital concepts into production-ready hardware.</p>
+
+      <div class="hero-pill-bar">
+        <span class="hero-pill-text">Explore engineering projects</span>
+        <a href="portfolio.html" class="hero-pill-btn">View Portfolio →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ME ================= -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="section-head reveal slide-left">
+      <h2>About Me</h2>
+    </div>
+
+    <div class="about-card reveal scale-up">
+      <div class="about-text">
+        <p>I’m a Mechanical Engineer with hands-on experience in manufacturing, CAD design, and mechanical R&amp;D. I have worked on product development and structural design, with a practical understanding of taking engineering concepts from CAD to manufacturable solutions.</p>
+        <p>Currently pursuing my B.E. in Mechanical Engineering, I’m focused on expanding my expertise in mechanical design, FEA, and engineering analysis. I’m passionate about developing practical, efficient, and reliable engineering solutions for real-world applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PROJECTS (3D SCROLL-DRIVEN STACKED CARDS) ================= -->
+<section class="services-3d-section" id="services">
+  <div class="services-3d-sticky-viewport">
+    <div class="services-header reveal slide-left">
+      <div class="section-badge">
+        <span>Featured Projects</span>
+        <span>•</span>
+        <span>Engineering Showcase</span>
+      </div>
+      <h2>Engineering precision from concept to reality.</h2>
+    </div>
+
+    <!-- 3D Perspective Stage Container (perspective: 2000px) -->
+    <div class="mdw-stacked-card-area" id="cardStack3D">
+
+      <!-- Card 01: Press Tool (Blue) -->
+      <article class="card-3d-item card-press" data-index="0" style="z-index: 10;">
+        <div class="card-grid-layout">
+          <div class="card-left-col">
+            <div class="card-meta-row">
+              <span class="card-badge-index">[01]</span>
+              <span class="card-category-tag">Tool &amp; Die Engineering</span>
+            </div>
+            <h2>Progressive Sheet Metal Press Tool</h2>
+            <p>Multi-station progressive stamping die integrating blanking, piercing, and bending. Engineered with hardened D2 tool steel (60-62 HRC), spring stripper plates, and precision pilot locators.</p>
+            <a href="portfolio.html" class="card-cta-btn">View Press Tool Specs →</a>
+          </div>
+
+          <div class="card-right-col">
+            <p class="panel-header-label">Tooling Specs &amp; Standards</p>
+            <div class="skills-pill-grid">
+              <span class="sub-tag-pill">D2 Tool Steel (60-62 HRC)</span>
+              <span class="sub-tag-pill">Progressive Blanking</span>
+              <span class="sub-tag-pill">Strip Layout (&gt;82% Yield)</span>
+              <span class="sub-tag-pill">Die Clearance 8%</span>
+              <span class="sub-tag-pill">0 Tooling Clashes</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-number">±0.005mm</span>
+              <span class="metric-label">Locating precision standard</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 02: FEA Stress Analysis (Orange) -->
+      <article class="card-3d-item card-fea" data-index="1" style="z-index: 20;">
+        <div class="card-grid-layout">
+          <div class="card-left-col">
+            <div class="card-meta-row">
+              <span class="card-badge-index">[02]</span>
+              <span class="card-category-tag">Finite Element Analysis (FEA)</span>
+            </div>
+            <h2>Power Transmission &amp; Stress Analysis</h2>
+            <p>Kinematic gear mesh and non-linear Von Mises contact stress analysis. Structural static analysis of multi-bay lattice crane boom verifying critical load paths and safety factors under dynamic loads.</p>
+            <a href="portfolio.html" class="card-cta-btn">Explore FEA Simulations →</a>
+          </div>
+
+          <div class="card-right-col">
+            <p class="panel-header-label">Simulation &amp; Boundary Conditions</p>
+            <div class="skills-pill-grid">
+              <span class="sub-tag-pill">Von Mises Stress FEA</span>
+              <span class="sub-tag-pill">Contact Stress Hotspots</span>
+              <span class="sub-tag-pill">SimScale / SolidWorks</span>
+              <span class="sub-tag-pill">AGMA 2001-D04 Standards</span>
+              <span class="sub-tag-pill">Structural Steel S355</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-number">FOS &gt; 2.2</span>
+              <span class="metric-label">Structural safety factor verified</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 03: CFD Aerodynamics (Teal) -->
+      <article class="card-3d-item card-cfd" data-index="2" style="z-index: 30;">
+        <div class="card-grid-layout">
+          <div class="card-left-col">
+            <div class="card-meta-row">
+              <span class="card-badge-index">[03]</span>
+              <span class="card-category-tag">Computational Fluid Dynamics (CFD)</span>
+            </div>
+            <h2>External Flow &amp; Airfoil Aerodynamics</h2>
+            <p>High-fidelity 3D aerodynamic flow simulation of aircraft wing profiles on SimScale (OpenFOAM solver). Evaluated pressure contour mapping, velocity streamlines, and boundary layer separation.</p>
+            <a href="portfolio.html" class="card-cta-btn">View CFD Aerodynamics →</a>
+          </div>
+
+          <div class="card-right-col">
+            <p class="panel-header-label">CFD Physics &amp; Turbulence Solvers</p>
+            <div class="skills-pill-grid">
+              <span class="sub-tag-pill">SimScale CFD Platform</span>
+              <span class="sub-tag-pill">OpenFOAM RANS Solver</span>
+              <span class="sub-tag-pill">k-omega SST Turbulence</span>
+              <span class="sub-tag-pill">Pressure Contour Mapping</span>
+              <span class="sub-tag-pill">Lift / Drag Polar Curves</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-number">0.00</span>
+              <span class="metric-label">Boundary layer separation hotspots</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACADEMIC JOURNEY ================= -->
+<section class="block" id="academic">
+  <div class="wrap">
+    <div class="section-head reveal slide-left">
+      <h2>Academic Journey</h2>
+    </div>
+
+    <div class="glass-panel reveal">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-tag">4-Year Program</div>
+          <h3>Diploma in Tool &amp; Die Making</h3>
+          <div class="tl-org">GTTC (Government Tool Room &amp; Training Centre)</div>
+          <p class="tl-desc">Gained hands-on experience in machine operating and tool design — press tools, mould tools, jigs &amp; fixtures, CNC basics, and machine tools &amp; cutters — across 3 years in college plus practicals.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-tag">In Progress</div>
+          <h3>B.E. Mechanical Engineering</h3>
+          <div class="tl-org">Jawaharlal Nehru New College of Engineering</div>
+          <p class="tl-desc">Building on diploma-level shop experience with formal mechanical engineering theory and design coursework.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal slide-left">
+      <h2>Work Experience</h2>
+    </div>
+
+    <div class="exp-card reveal scale-up">
+      <div class="exp-top">
+        <div class="exp-role">
+          <h3>Design Intern (Paid)</h3>
+          <div class="exp-org">Mecwin Technologies</div>
+        </div>
+        <div class="exp-dates">JUN 2025 — JUN 2026</div>
+      </div>
+      <p class="exp-desc">Led end-to-end CAD modeling, structural design, and supplier coordination for heavy-duty agricultural machinery subassemblies — including gearbox housings, gear shifter linkages, and ergonomically optimized foot pedal mechanisms. Developed production BOMs, enforced DFM/DFA principles, and supervised shop-floor prototype assembly.</p>
+
+      <div class="sub-label">Subassemblies Designed &amp; Executed</div>
+      <div class="tag-row">
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg> Gear Box</span>
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 20l6-6M20 4l-6 6M10 10l4 4"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/></svg> Gear Shifter Mechanism</span>
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 18h6M4 6h16M14 6l-4 12"/></svg> Pedals &amp; Linkages</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MODERN 2-TIER FOOTER ================= -->
+<footer class="modern-footer" id="contact">
+  <div class="wrap">
+    <!-- TIER 1: Top Floating CTA Banner Card -->
+    <div class="footer-cta-card reveal scale-up">
+      <h2>Let’s Build Something Precision-Engineered Together</h2>
+      <p>Mechanical CAD &amp; Tooling Engineer • Open for Freelance, Design Consultations &amp; Full-Time Roles • Bengaluru, India</p>
+      
+      <div class="cta-card-actions">
+        <a href="mailto:abrarmohammed2647@gmail.com" class="btn-cta-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          abrarmohammed2647@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/mohammed-abrar-92aa9437" target="_blank" rel="noopener noreferrer" class="btn-cta-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/></svg>
+          LinkedIn Profile ↗
+        </a>
+        <a href="https://www.instagram.com/ana.abrar7" target="_blank" rel="noopener noreferrer" class="btn-cta-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram (ana.abrar7) ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- TIER 2: Bottom 3-Column Info & Links Grid -->
+    <div class="footer-bottom-grid">
+      <div class="footer-left-col">
+        <div class="footer-brand">
+          <span>Mohammed Abrar</span>
+        </div>
+        <div class="footer-tagline">Tool &amp; Die • CAD Design • Manufacturing / Bengaluru, Karnataka</div>
+        <div class="footer-note">Available for precision tooling design, CAD modeling, and manufacturing consultations.</div>
+        <div class="footer-copy">© 2026 Mohammed Abrar. All rights reserved.</div>
+      </div>
+
+      <div class="footer-nav-col">
+        <h4>Navigation</h4>
+        <nav class="footer-nav-list">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="#about">About Me</a>
+          <a href="#services">Featured Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-action-col">
+        <h4>Connect &amp; Inquire</h4>
+        <p>Available for engineering consultations, 3D CAD modeling, and tooling production planning.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+          <a href="mailto:abrarmohammed2647@gmail.com" style="color: #2563EB; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            ✉️ abrarmohammed2647@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/mohammed-abrar-92aa9437" target="_blank" rel="noopener noreferrer" style="color: #374151; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            💼 LinkedIn Profile ↗
+          </a>
+          <a href="https://www.instagram.com/ana.abrar7" target="_blank" rel="noopener noreferrer" style="color: #374151; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            📸 Instagram @ana.abrar7 ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-bar with Scroll to Top Button -->
+    <div class="footer-sub-bar">
+      <span>Designed with precision &amp; care • Bengaluru, India</span>
+      <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Preloader Fade Out
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+      }, 350);
+    }
+
+    // Dynamic scroll-triggered navbar morphing & footer boundary avoidance
+    const mainHeader = document.getElementById('mainHeader');
+    const footer = document.querySelector('.modern-footer');
+    if (mainHeader) {
+      let isScrolled = false;
+      let isHidden = false;
+
+      const updateNav = () => {
+        const scrollY = window.scrollY;
+        const shouldBeScrolled = scrollY > 50;
+
+        let footerOverlap = false;
+        if (footer) {
+          const footerRect = footer.getBoundingClientRect();
+          if (footerRect.top <= 80) {
+            footerOverlap = true;
+          }
+        }
+
+        if (footerOverlap !== isHidden) {
+          isHidden = footerOverlap;
+          if (isHidden) {
+            mainHeader.classList.add('nav-hidden');
+          } else {
+            mainHeader.classList.remove('nav-hidden');
+          }
+        }
+
+        if (shouldBeScrolled !== isScrolled) {
+          isScrolled = shouldBeScrolled;
+          if (isScrolled) {
+            mainHeader.classList.add('is-scrolled');
+          } else {
+            mainHeader.classList.remove('is-scrolled');
+          }
+        }
+      };
+
+      window.addEventListener('scroll', () => {
+        requestAnimationFrame(updateNav);
+      }, { passive: true });
+      window.addEventListener('resize', () => {
+        requestAnimationFrame(updateNav);
+      }, { passive: true });
+      updateNav();
+    }
+
+    // Scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Scroll reveal via IntersectionObserver
+    const revealEls = document.querySelectorAll('.reveal, section.block .section-head, .footer-cta-card');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('in-view'));
+    }
+
+    // ================= 3D PERSPECTIVE SCROLL-DRIVEN STACKED CARDS (3 PROJECTS: PRESS TOOL, FEA, CFD) =================
+    function init3DStackedCardScroll() {
+      const container = document.getElementById('services');
+      const cards = document.querySelectorAll('.card-3d-item');
+      if (!container || !cards.length) return;
+
+      const cardCount = cards.length; // 3 projects
+
+      // 2 smooth entrance intervals for Cards 2 and 3
+      const intervals = [
+        { start: 0.08, end: 0.48 }, // Card 2 (FEA)
+        { start: 0.52, end: 0.92 }  // Card 3 (CFD)
+      ];
+
+      function update3DStack() {
+        const rect = container.getBoundingClientRect();
+        const totalDist = container.offsetHeight - window.innerHeight;
+        if (totalDist <= 0) return;
+
+        let progress = (-rect.top) / totalDist;
+        progress = Math.max(0, Math.min(1, progress));
+
+        const easeOutQuad = (t) => t * (2 - t);
+
+        // Base states for 3 cards
+        let transforms = [
+          { y: 0, rotX: 0, scale: 1, opacity: 1, brightness: 1 },
+          { y: 120, rotX: -32, scale: 0.94, opacity: 0, brightness: 1 },
+          { y: 120, rotX: -32, scale: 0.94, opacity: 0, brightness: 1 }
+        ];
+
+        // --- Card 2 Animation (Index 1: FEA) ---
+        if (progress <= intervals[0].start) {
+          transforms[1] = { y: 120, rotX: -32, scale: 0.94, opacity: 0, brightness: 1 };
+          transforms[0] = { y: 0, rotX: 0, scale: 1, opacity: 1, brightness: 1 };
+        } else if (progress < intervals[0].end) {
+          const rawT = (progress - intervals[0].start) / (intervals[0].end - intervals[0].start);
+          const t = easeOutQuad(rawT);
+          transforms[1].y = (1 - t) * 120;
+          transforms[1].rotX = (1 - t) * -32;
+          transforms[1].scale = 0.94 + t * 0.06;
+          transforms[1].opacity = Math.min(1, rawT * 2.8);
+          transforms[1].brightness = 1;
+
+          transforms[0].scale = 1 - t * 0.06;
+          transforms[0].opacity = 1 - t * 0.40;
+          transforms[0].brightness = 1 - t * 0.30;
+          transforms[0].y = -t * 16;
+        } else {
+          transforms[1] = { y: 0, rotX: 0, scale: 1, opacity: 1, brightness: 1 };
+          transforms[0] = { y: -16, rotX: 0, scale: 0.94, opacity: 0.60, brightness: 0.70 };
+        }
+
+        // --- Card 3 Animation (Index 2: CFD) ---
+        if (progress <= intervals[1].start) {
+          transforms[2] = { y: 120, rotX: -32, scale: 0.94, opacity: 0, brightness: 1 };
+        } else if (progress < intervals[1].end) {
+          const rawT = (progress - intervals[1].start) / (intervals[1].end - intervals[1].start);
+          const t = easeOutQuad(rawT);
+          transforms[2].y = (1 - t) * 120;
+          transforms[2].rotX = (1 - t) * -32;
+          transforms[2].scale = 0.94 + t * 0.06;
+          transforms[2].opacity = Math.min(1, rawT * 2.8);
+          transforms[2].brightness = 1;
+
+          transforms[1].scale = 1 - t * 0.06;
+          transforms[1].opacity = 1 - t * 0.40;
+          transforms[1].brightness = 1 - t * 0.30;
+          transforms[1].y = -t * 16;
+
+          transforms[0].scale = 0.94 - t * 0.05;
+          transforms[0].opacity = 0.60 - t * 0.35;
+          transforms[0].brightness = 0.70 - t * 0.25;
+          transforms[0].y = -16 - t * 12;
+        } else if (progress >= intervals[1].end) {
+          transforms[2] = { y: 0, rotX: 0, scale: 1, opacity: 1, brightness: 1 };
+          transforms[1] = { y: -16, rotX: 0, scale: 0.94, opacity: 0.60, brightness: 0.70 };
+          transforms[0] = { y: -28, rotX: 0, scale: 0.89, opacity: 0.25, brightness: 0.45 };
+        }
+
+        // Apply hardware-accelerated 3D transforms
+        for (let i = 0; i < cardCount; i++) {
+          const st = transforms[i];
+          cards[i].style.transform = `translateY(${st.y.toFixed(2)}%) rotateX(${st.rotX.toFixed(2)}deg) scale(${st.scale.toFixed(4)})`;
+          cards[i].style.opacity = st.opacity.toFixed(3);
+          cards[i].style.filter = `brightness(${st.brightness.toFixed(3)})`;
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        requestAnimationFrame(update3DStack);
+      }, { passive: true });
+      window.addEventListener('resize', () => {
+        requestAnimationFrame(update3DStack);
+      }, { passive: true });
+      update3DStack();
+    }
+
+    init3DStackedCardScroll();
+  });
+</script>
+
+</body>
+</html>

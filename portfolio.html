@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects &amp; Case Studies — Mohammed Abrar</title>
+<meta name="description" content="Technical engineering showcase of Tool &amp; Die designs, CAD assemblies, press tools, injection mould tooling, FEA simulations, and GD&amp;T blueprints by Mohammed Abrar.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:        #FFFFFF;
+    --bg-page:      #F5F4F0;
+    --ink:          #111827;
+    --ink-soft:     #374151;
+    --ink-faint:    #6B7280;
+    --blue:         #2563EB;
+    --blue-dark:    #1D4ED8;
+    --blue-light:   #EFF6FF;
+    --border:       #E5E2DA;
+    --white:        #FFFFFF;
+
+    --font-display: 'Inter', sans-serif;
+    --font-body:    'Inter', sans-serif;
+    --font-mono:    'IBM Plex Mono', monospace;
+
+    --section-pad: clamp(48px, 8vw, 96px);
+    --edge-pad: clamp(20px, 6vw, 72px);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: #F5F4F0;
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection{ background: rgba(37, 99, 235, 0.18); color: var(--blue-dark); }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: var(--edge-pad);
+    padding-right: var(--edge-pad);
+  }
+
+  /* ================= SLEEK LIQUID GLASS NAVBAR ================= */
+  .global-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 14px var(--edge-pad);
+    pointer-events: none;
+    transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .header-inner {
+    width: 92%;
+    max-width: 1040px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(245, 244, 240, 0.85) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(229, 226, 218, 0.9);
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    pointer-events: auto;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: #111827;
+    transition: color 0.25s ease;
+    text-decoration: none;
+  }
+
+  .brand-name:hover {
+    color: var(--blue);
+  }
+
+  .nav-links-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-pill-link {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #4B5563;
+    padding: 6px 14px;
+    border-radius: 100px;
+    transition: all 0.25s ease;
+  }
+
+  .nav-pill-link:hover {
+    color: #111827;
+    background: rgba(17, 24, 39, 0.05);
+  }
+
+  .nav-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 18px;
+    background: #111827;
+    border: 1px solid #111827;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(17, 24, 39, 0.12);
+  }
+
+  .nav-contact-btn:hover {
+    background: #2563EB;
+    border-color: #2563EB;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  }
+
+  /* ================= PAGE HERO & HEADER ================= */
+  .portfolio-hero {
+    padding-top: clamp(100px, 14vh, 140px);
+    padding-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-heading{
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #111827;
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle{
+    font-size: clamp(15px, 1.8vw, 18px);
+    font-weight: 400;
+    line-height: 1.65;
+    color: #4B5563;
+    max-width: 720px;
+    margin-bottom: 36px;
+  }
+
+  /* ================= METRICS BAR ================= */
+  .metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 48px;
+  }
+
+  .metric-item {
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    border-radius: 18px;
+    padding: 18px 20px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(17, 24, 39, 0.02);
+  }
+
+  .metric-val {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 2px;
+  }
+
+  .metric-desc {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ================= PROJECT GRID ================= */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+
+  .project-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.04);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(17, 24, 39, 0.09);
+    border-color: #D1CDC2;
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+    background: #FAF9F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #E5E2DA;
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-card:hover .project-thumb img {
+    transform: scale(1.06);
+  }
+
+  .project-category-badge {
+    position: absolute;
+    top: 14px; left: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(17, 24, 39, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .project-index-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .project-body {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .project-tagline {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .project-body h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .project-body p {
+    font-size: 14.5px;
+    color: #4B5563;
+    line-height: 1.65;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+
+  .software-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .sw-tag {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    background: #FAF9F6;
+    border: 1px solid #E5E2DA;
+    color: #374151;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .project-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #111827;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+
+  .project-card:hover .project-card-link {
+    color: var(--blue);
+    transform: translateX(4px);
+  }
+
+  /* ================= ENGINEERING WORKFLOW SECTION ================= */
+  .workflow-section {
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    border-radius: 28px;
+    padding: clamp(36px, 6vw, 56px);
+    margin-bottom: 90px;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.04);
+  }
+
+  .workflow-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .workflow-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #2563EB;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .workflow-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.6vw, 36px);
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .workflow-header p {
+    font-size: 15px;
+    color: #6B7280;
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .workflow-step-card {
+    background: #FAF9F6;
+    border: 1px solid #E5E2DA;
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563EB;
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 13.5px;
+    color: #4B5563;
+    line-height: 1.6;
+  }
+
+  /* ================= CASE STUDY MODAL ================= */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    border-radius: 28px;
+    max-width: 820px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: clamp(28px, 5vw, 44px);
+    box-shadow: 0 24px 60px rgba(17, 24, 39, 0.25);
+    position: relative;
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .modal-overlay.active .modal-card {
+    transform: scale(1) translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #FAF9F6;
+    border: 1px solid #E5E2DA;
+    color: #111827;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10;
+  }
+
+  .modal-close:hover {
+    background: #111827;
+    color: #FFFFFF;
+  }
+
+  .modal-image-holder {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #E5E2DA;
+    background: #0F172A;
+  }
+
+  .modal-image-holder img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    background: #111827;
+  }
+
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+
+  .modal-meta {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--blue);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .modal-section {
+    margin-bottom: 22px;
+  }
+
+  .modal-section h4 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6B7280;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .modal-section p, .modal-section ul {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .modal-section ul {
+    padding-left: 20px;
+  }
+
+  .modal-section ul li {
+    margin-bottom: 6px;
+  }
+
+  /* ================= MODERN 2-TIER FOOTER ================= */
+  .modern-footer {
+    background: #EDEAE3;
+    border-top: 1px solid #E5E2DA;
+    padding-top: clamp(60px, 8vw, 96px);
+    position: relative;
+  }
+
+  .footer-cta-card {
+    background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.35) 0%, rgba(15, 23, 42, 0.98) 80%), #0F172A;
+    border-radius: 28px;
+    padding: clamp(38px, 6vw, 68px) clamp(24px, 5vw, 60px);
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(17, 24, 39, 0.2), 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: clamp(48px, 7vw, 76px);
+  }
+
+  .footer-cta-card h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-cta-card p {
+    font-size: clamp(14px, 1.6vw, 16px);
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 680px;
+    margin: 0 auto 34px;
+    line-height: 1.65;
+  }
+
+  .cta-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 13px 30px;
+    border-radius: 100px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-cta-primary:hover {
+    background: #F8FAFC;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .footer-bottom-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.3fr;
+    gap: 48px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #E5E2DA;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: #6B7280;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .footer-note {
+    font-size: 14.5px;
+    color: #4B5563;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    max-width: 340px;
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #9CA3AF;
+  }
+
+  .footer-nav-col h4, .footer-action-col h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: #111827;
+    margin-bottom: 18px;
+  }
+
+  .footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-list a {
+    font-size: 14.5px;
+    color: #4B5563;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-nav-list a:hover {
+    color: var(--blue);
+    transform: translateX(4px);
+  }
+
+  .footer-action-col p {
+    font-size: 14.5px;
+    color: #4B5563;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .footer-book-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: #111827;
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(17, 24, 39, 0.12);
+  }
+
+  .footer-book-btn:hover {
+    background: #2563EB;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
+  }
+
+  .footer-sub-bar {
+    padding: 24px 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #6B7280;
+  }
+
+  .scroll-top-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid #E5E2DA;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .scroll-top-btn:hover {
+    background: #111827;
+    color: #FFFFFF;
+    border-color: #111827;
+    transform: translateY(-3px);
+  }
+
+  .scroll-top-btn svg {
+    width: 18px; height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+
+  @media (max-width: 900px) {
+    .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+    .workflow-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .project-grid { grid-template-columns: 1fr; }
+    .metrics-strip { grid-template-columns: 1fr; }
+    .workflow-grid { grid-template-columns: 1fr; }
+    .footer-bottom-grid { grid-template-columns: 1fr; gap: 36px; }
+    .header-inner { padding: 8px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= SLEEK LIQUID GLASS NAVBAR ================= -->
+<header class="global-navbar">
+  <div class="header-inner">
+    <a href="index.html" class="brand-name">Mohammed Abrar</a>
+    <div class="nav-links-right">
+      <a href="index.html" class="nav-pill-link">Home</a>
+      <a href="index.html#about" class="nav-pill-link">About</a>
+      <a href="#contact" class="nav-contact-btn">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PORTFOLIO HERO ================= -->
+<div class="wrap">
+  <section class="portfolio-hero">
+    <h1 class="hero-heading">Mechanical Design &amp; Engineering Showcase</h1>
+    <p class="hero-subtitle">Comprehensive technical showcase spanning progressive sheet metal dies, injection mold tooling, multi-axis fixtures, FEA/CFD simulations, and production blueprints.</p>
+
+    <!-- Engineering Quality & Delivery Metrics -->
+    <div class="metrics-strip">
+      <div class="metric-item">
+        <div class="metric-val">100%</div>
+        <div class="metric-desc">On-Time CAD Delivery</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">0</div>
+        <div class="metric-desc">Tooling &amp; Motion Clashes</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">±0.01mm</div>
+        <div class="metric-desc">Machining Precision Standard</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">&lt; 24h</div>
+        <div class="metric-desc">Technical Response Time</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECT GRID ================= -->
+  <main class="project-grid">
+
+    <!-- PROJECT 01: Progressive Sheet Metal Tool & Die -->
+    <article class="project-card" onclick="openModal('progdie')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/cad_progressive_die.png" alt="Progressive Sheet Metal Tool & Die Design" />
+        <div class="project-category-badge">CAD &amp; Tooling</div>
+        <div class="project-index-badge">01</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">Multi-Station Stamping System</div>
+        <h3>Progressive Sheet Metal Tool &amp; Die Design</h3>
+        <p>Integrated blanking, piercing, and forming stages in a single continuous strip layout. Engineered with hardened D2 die inserts, stripper pads, and guide pillars for high-speed stamping.</p>
+        <div class="software-tags">
+          <span class="sw-tag">PTC Creo</span>
+          <span class="sw-tag">SolidWorks</span>
+          <span class="sw-tag">Tool Steel (D2 / HCHCR)</span>
+          <span class="sw-tag">Strip Layout</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+    <!-- PROJECT 02: Precision Injection Mold Tooling Design -->
+    <article class="project-card" onclick="openModal('mold')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/cad_injection_mold.png" alt="Precision Injection Mold Tooling Design" />
+        <div class="project-category-badge">CAD &amp; Tooling</div>
+        <div class="project-index-badge">02</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">Core &amp; Cavity Split Architecture</div>
+        <h3>Precision Injection Mold Tooling Design</h3>
+        <p>Two-plate injection mold tooling with complex parting lines, DFM draft angle validation, uniform conformal cooling channels, and guided multi-pin ejection.</p>
+        <div class="software-tags">
+          <span class="sw-tag">Siemens NX Mold Wizard</span>
+          <span class="sw-tag">SolidWorks</span>
+          <span class="sw-tag">Mouldflow</span>
+          <span class="sw-tag">DFM Validation</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+    <!-- PROJECT 03: Custom Machine Vise & Clamping Fixture -->
+    <article class="project-card" onclick="openModal('vise')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/cad_machine_vise.png" alt="Custom Machine Vise & Clamping Fixture" />
+        <div class="project-category-badge">Jigs &amp; Fixtures</div>
+        <div class="project-index-badge">03</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">Production Tooling &amp; Workholding</div>
+        <h3>Custom Machine Vise &amp; Clamping Fixture</h3>
+        <p>Heavy-duty mechanical screw clamp assembly engineered for repeat CNC machining operations with high clamping rigidity, 3-2-1 locating, and standard COTS parts integration.</p>
+        <div class="software-tags">
+          <span class="sw-tag">SolidWorks</span>
+          <span class="sw-tag">PTC Creo</span>
+          <span class="sw-tag">3-2-1 Locating</span>
+          <span class="sw-tag">COTS Integration</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+    <!-- PROJECT 04: Power Transmission & Contact Stress Analysis -->
+    <article class="project-card" onclick="openModal('gearsim')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/proj_04_gear_contact_stress.jpg" alt="Power Transmission & Contact Stress Analysis" />
+        <div class="project-category-badge">FEA &amp; Simulation</div>
+        <div class="project-index-badge">04</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">Parametric Involute Modeling &amp; FEA</div>
+        <h3>Power Transmission &amp; Contact Stress Analysis</h3>
+        <p>Kinematic gear mesh analysis and non-linear Von Mises contact stress FEA simulation to evaluate tooth bending fatigue, localized hotspots, and prevent surface pitting.</p>
+        <div class="software-tags">
+          <span class="sw-tag">SolidWorks Simulation</span>
+          <span class="sw-tag">SimScale FEA</span>
+          <span class="sw-tag">AGMA Standards</span>
+          <span class="sw-tag">Von Mises FEA</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+    <!-- PROJECT 05: Crane Boom Truss: Linear Static Analysis -->
+    <article class="project-card" onclick="openModal('truss')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/fea_crane_truss.png" alt="Crane Boom Truss: Linear Static Analysis" />
+        <div class="project-category-badge">FEA &amp; Simulation</div>
+        <div class="project-index-badge">05</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">Structural Integrity &amp; FOS Validation</div>
+        <h3>Crane Boom Truss: Linear Static Analysis</h3>
+        <p>Full-scale structural FEA of multi-bay tubular lattice crane boom under combined cantilever tip loads and self-weight deflection. Verified pinned boundary loads and safety factor.</p>
+        <div class="software-tags">
+          <span class="sw-tag">SimScale FEA</span>
+          <span class="sw-tag">Structural Steel S355</span>
+          <span class="sw-tag">Euler Buckling</span>
+          <span class="sw-tag">Factor of Safety</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+    <!-- PROJECT 06: Computational Fluid Dynamics (CFD) -->
+    <article class="project-card" onclick="openModal('wingcfd')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/cfd_airfoil.png" alt="Computational Fluid Dynamics (CFD)" />
+        <div class="project-category-badge">CFD &amp; Aerodynamics</div>
+        <div class="project-index-badge">06</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">External Flow &amp; Airfoil Simulation</div>
+        <h3>Computational Fluid Dynamics (CFD)</h3>
+        <p>Comprehensive external aerodynamic flow simulation of aircraft wing airfoil profile on SimScale, mapping velocity streamlines, pressure contours, and boundary layer separation.</p>
+        <div class="software-tags">
+          <span class="sw-tag">SimScale CFD</span>
+          <span class="sw-tag">OpenFOAM Solver</span>
+          <span class="sw-tag">RANS k-omega SST</span>
+          <span class="sw-tag">Lift / Drag Polars</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+    <!-- PROJECT 07: GD&T & Workshop Manufacturing Drawings -->
+    <article class="project-card" onclick="openModal('drawings')">
+      <div class="project-thumb">
+        <img src="assets/images/projects/proj_07_gdt_manufacturing_drawings.jpg" alt="GD&T & Workshop Manufacturing Drawings" />
+        <div class="project-category-badge">GD&amp;T &amp; Blueprints</div>
+        <div class="project-index-badge">07</div>
+      </div>
+      <div class="project-body">
+        <div class="project-tagline">ISO / ASME Y14.5 Production Drawings</div>
+        <h3>GD&amp;T &amp; Workshop Manufacturing Drawings</h3>
+        <p>Production-ready engineering drawings with complete geometric tolerancing, datum reference frames, surface roughness (Ra) callouts, and gear specification inspection tables.</p>
+        <div class="software-tags">
+          <span class="sw-tag">ASME Y14.5M</span>
+          <span class="sw-tag">ISO 1101</span>
+          <span class="sw-tag">AutoCAD 2D</span>
+          <span class="sw-tag">CMM Inspection Notes</span>
+        </div>
+        <div class="project-card-link">View Case Study &amp; Specs →</div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ================= ENGINEERING WORKFLOW SECTION ================= -->
+  <section class="workflow-section">
+    <div class="workflow-header">
+      <div class="workflow-badge">End-to-End Methodology</div>
+      <h2>4-Stage Engineering Delivery Pipeline</h2>
+      <p>From initial design inputs to shop-floor manufacturing drawings, every project undergoes rigorous CAD, DFM, and simulation verification.</p>
+    </div>
+
+    <div class="workflow-grid">
+      <div class="workflow-step-card">
+        <div class="step-number">STAGE 01</div>
+        <div class="step-title">Scope &amp; Inputs</div>
+        <p class="step-desc">Establish dimensional envelopes, functional loads, material selection, production volume, and machine capabilities.</p>
+      </div>
+
+      <div class="workflow-step-card">
+        <div class="step-number">STAGE 02</div>
+        <div class="step-title">3D CAD &amp; DFM</div>
+        <p class="step-desc">Parametric solid modeling, clearance checks, parting line definition, draft validation, and kinematic interference analysis.</p>
+      </div>
+
+      <div class="workflow-step-card">
+        <div class="step-number">STAGE 03</div>
+        <div class="step-title">Simulation Audit</div>
+        <p class="step-desc">FEA stress and deformation evaluation, safety factor checks, CFD aerodynamic fields, and load-path optimization.</p>
+      </div>
+
+      <div class="workflow-step-card">
+        <div class="step-number">STAGE 04</div>
+        <div class="step-title">Drawings &amp; Release</div>
+        <p class="step-desc">2D manufacturing drawings with ASME Y14.5 GD&amp;T callouts, BOM tables, surface finishes, and shop-floor setup sheets.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= CASE STUDY MODAL OVERLAY ================= -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent">
+      <!-- Dynamic Content -->
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODERN 2-TIER FOOTER ================= -->
+<footer class="modern-footer" id="contact">
+  <div class="wrap">
+    <!-- TIER 1: Top Floating CTA Banner Card -->
+    <div class="footer-cta-card">
+      <h2>Let’s Build Something Precision-Engineered Together</h2>
+      <p>Mechanical CAD &amp; Tooling Engineer • Open for Freelance, Design Consultations &amp; Full-Time Roles • Bengaluru, India</p>
+      
+      <div class="cta-card-actions">
+        <a href="mailto:abrarmohammed2647@gmail.com" class="btn-cta-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          abrarmohammed2647@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/mohammed-abrar-92aa9437" target="_blank" rel="noopener noreferrer" class="btn-cta-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/></svg>
+          LinkedIn Profile ↗
+        </a>
+        <a href="https://www.instagram.com/ana.abrar7" target="_blank" rel="noopener noreferrer" class="btn-cta-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram (ana.abrar7) ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- TIER 2: Bottom 3-Column Info & Links Grid -->
+    <div class="footer-bottom-grid">
+      <!-- Left Column: Brand & Info -->
+      <div class="footer-left-col">
+        <div class="footer-brand">
+          <span>Mohammed Abrar</span>
+        </div>
+        <div class="footer-tagline">Tool &amp; Die • CAD Design • Manufacturing / Bengaluru, Karnataka</div>
+        <div class="footer-note">Available for precision tooling design, CAD modeling, and manufacturing consultations.</div>
+        <div class="footer-copy">© 2026 Mohammed Abrar. All rights reserved.</div>
+      </div>
+
+      <!-- Middle Column: Navigation Links -->
+      <div class="footer-nav-col">
+        <h4>Navigation</h4>
+        <nav class="footer-nav-list">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="index.html#about">About Me</a>
+          <a href="index.html#services">Featured Projects</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Right Column: Direct Action / Booking -->
+      <div class="footer-action-col">
+        <h4>Connect &amp; Inquire</h4>
+        <p>Available for engineering consultations, 3D CAD modeling, and tooling production planning.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+          <a href="mailto:abrarmohammed2647@gmail.com" style="color: #2563EB; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            ✉️ abrarmohammed2647@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/mohammed-abrar-92aa9437" target="_blank" rel="noopener noreferrer" style="color: #374151; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            💼 LinkedIn Profile ↗
+          </a>
+          <a href="https://www.instagram.com/ana.abrar7" target="_blank" rel="noopener noreferrer" style="color: #374151; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            📸 Instagram @ana.abrar7 ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-bar with Scroll to Top Button -->
+    <div class="footer-sub-bar">
+      <span>Designed with precision &amp; care • Bengaluru, India</span>
+      <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  });
+
+  // Rich Case Study Data Mapping matching Real PDF Presentation
+  const modalData = {
+    progdie: {
+      title: "Progressive Sheet Metal Tool & Die Design",
+      meta: "Project 01 • Multi-Station Stamping System",
+      image: "assets/images/projects/cad_progressive_die.png",
+      overview: "Engineered a multi-station progressive stamping die that integrates blanking, piercing, and forming operations into a single continuous strip layout. Designed for repeatable, burr-free high-speed stamping of precision components with optimized strip nesting.",
+      specifications: [
+        "Software: PTC Creo, SolidWorks 3D, AutoCAD",
+        "Die Material: Hardened High-Carbon High-Chromium Tool Steel (D2 / HCHCR 60-62 HRC)",
+        "Strip Utilization: Optimized pitch and margin allowance to achieve >82% strip yield",
+        "Clearances: 7-8% uniform metal thickness die clearance for clean shear edges",
+        "Stripper Mechanism: Spring-loaded floating stripper pads with precision ball guide pillars"
+      ],
+      highlights: "Zero punching deflection under high tonnage. Optimized scrap ejection chutes and pilot locating pins ensure continuous stamping accuracy across thousands of cycles without jamming."
+    },
+    mold: {
+      title: "Precision Injection Mold Tooling Design",
+      meta: "Project 02 • Core & Cavity Split Architecture",
+      image: "assets/images/projects/cad_injection_mold.png",
+      overview: "Engineered a robust two-plate injection mold tooling system featuring intricate parting lines, DFM draft angle validation, and conformal cooling channel layout to minimize cycle times and thermal sink warping.",
+      specifications: [
+        "Software: Siemens NX Mold Wizard, SolidWorks, Autodesk Moldflow",
+        "Mould Architecture: 2-Plate Tooling with Cold Runner & Submarine Gate Feed",
+        "Draft Validation: 1.5° to 3° draft verified on all deep ribs, core faces, and cavities",
+        "Thermal Regulation: Conformal baffle cooling channels for uniform heat dissipation",
+        "Ejection Mechanism: Guided multi-pin ejection with return springs and slide locks"
+      ],
+      highlights: "Conducted complete mold flow fill analysis to eliminate weld lines, air traps, and uneven shrinkage, ensuring defect-free injection cycles and high surface aesthetics."
+    },
+    vise: {
+      title: "Custom Machine Vise & Clamping Fixture",
+      meta: "Project 03 • Production Tooling & Workholding",
+      image: "assets/images/projects/cad_machine_vise.png",
+      overview: "Designed a heavy-duty mechanical screw clamp assembly engineered for repeat CNC machining operations with high clamping rigidity, 3-2-1 locating, and standard COTS parts integration.",
+      specifications: [
+        "Software: SolidWorks, PTC Creo",
+        "Locating Principle: 3-2-1 Locating system with hardened serrated steel jaw inserts",
+        "Drive Mechanism: ACME precision lead screw with thrust bearings and guide pins",
+        "Machining Tolerance: Repeatable part locating and clamping rigidity within ±0.01mm",
+        "COTS Standardization: Standardized fasteners, dowels, and bearing components"
+      ],
+      highlights: "Compact footprint with modular interchangeable jaws allowing rapid part changeovers and high vibration resistance during heavy milling cuts."
+    },
+    gearsim: {
+      title: "Power Transmission & Contact Stress Analysis",
+      meta: "Project 04 • Parametric Involute Modeling & FEA",
+      image: "assets/images/projects/proj_04_gear_contact_stress.jpg",
+      overview: "Conducted parametric kinematic gear mesh modeling and non-linear Von Mises contact stress FEA simulation to evaluate tooth bending fatigue, localized contact hotspots, and prevent surface pitting.",
+      specifications: [
+        "Software: SolidWorks Simulation, SimScale FEA, KISSsoft",
+        "Tooth Profile: Accurate 20° pressure angle parametric involute tooth generation",
+        "Meshing: Fine tetrahedral mesh with localized sub-millimeter refinement along contact line",
+        "Evaluation: Von Mises equivalent stress, contact shear stress, and Factor of Safety",
+        "Standards: Evaluated against AGMA 2001-D04 pitting and bending ratings"
+      ],
+      highlights: "Identified high-stress concentration at tooth root fillet and redesigned fillet curvature, yielding a 28% increase in cyclic fatigue life under peak dynamic torque."
+    },
+    truss: {
+      title: "Crane Boom Truss: Linear Static Analysis",
+      meta: "Project 05 • Structural Integrity & FOS Validation",
+      image: "assets/images/projects/fea_crane_truss.png",
+      overview: "Performed comprehensive linear static structural analysis of a multi-bay tubular lattice crane boom subjected to combined cantilever tip loads and self-weight gravitational loads.",
+      specifications: [
+        "Software: SimScale FEA, SolidWorks Simulation",
+        "Boundary Conditions: Pinned base pivot supports with multi-point cantilever tip load vectors",
+        "Material: Structural Hollow Section Steel (ASTM A500 Grade B / S355)",
+        "Diagnostics: Full nodal deflection field, Euler buckling verification, and stress distribution",
+        "Safety Factor: Maintained structural FOS > 2.2 under 150% rated peak payload"
+      ],
+      highlights: "Verified critical load paths across welded nodes and optimized tube wall thicknesses, achieving 15% structural weight reduction without sacrificing boom stiffness."
+    },
+    wingcfd: {
+      title: "Computational Fluid Dynamics (CFD) Airfoil Analysis",
+      meta: "Project 06 • External Flow & Aerodynamic Field Simulation",
+      image: "assets/images/projects/cfd_airfoil.png",
+      overview: "Executed external 3D aerodynamic flow simulations on an aircraft wing profile using SimScale (`wing cfd by abrarmohammed2`), analyzing pressure gradients, velocity streamlines, and boundary layer separation.",
+      specifications: [
+        "Software: SimScale CFD Cloud Platform, OpenFOAM Solver",
+        "Turbulence Modeling: Incompressible RANS with k-omega SST model for wall boundary capture",
+        "Domain & Mesh: 3D bounding fluid domain with prism layer wall boundary inflation (y+ ≈ 1)",
+        "Metrics: Pressure coefficient (Cp) distribution, lift (Cl), drag (Cd), and L/D polar ratios",
+        "Flow Conditions: Varied angle of attack (AoA) across subsonic operating speeds"
+      ],
+      highlights: "Accurately captured adverse pressure gradient onset and flow separation at high angles of attack, validating the aerodynamic stall envelope."
+    },
+    drawings: {
+      title: "GD&T & Workshop Manufacturing Drawings",
+      meta: "Project 07 • ASME Y14.5 / ISO 1101 Production Blueprints",
+      image: "assets/images/projects/proj_07_gdt_manufacturing_drawings.jpg",
+      overview: "Created production-ready 2D manufacturing blueprints for machined casing components, stepped drive shafts, and gear systems with unambiguous GD&T datum callouts and machining tables.",
+      specifications: [
+        "Standards: ASME Y14.5M and ISO 1101 Geometric Dimensioning & Tolerancing",
+        "Feature Controls: True Position, Concentricity, Perpendicularity, Flatness, and Runout",
+        "Surface Texture: Ra 0.8μm grinding callouts on critical bearing bores and seal journals",
+        "Documentation: Complete Bill of Materials (BOM), heat treatment specs, and inspection notes"
+      ],
+      highlights: "Eliminated machining ambiguity, facilitating seamless CAM setup, CMM inspection alignment, and 100% first-article inspection pass rate."
+    }
+  };
+
+  function openModal(id) {
+    const data = modalData[id];
+    if (!data) return;
+
+    const contentHtml = `
+      ${data.image ? `<div class="modal-image-holder"><img src="${data.image}" alt="${data.title}" /></div>` : ''}
+      <div class="modal-title">${data.title}</div>
+      <div class="modal-meta">${data.meta}</div>
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>${data.overview}</p>
+      </div>
+      <div class="modal-section">
+        <h4>Technical Specifications</h4>
+        <ul>
+          ${data.specifications.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Engineering Highlights</h4>
+        <p>${data.highlights}</p>
+      </div>
+    `;
+
+    document.getElementById('modalContent').innerHTML = contentHtml;
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnOverlay(e) {
+    if (e.target.id === 'modalOverlay') {
+      closeModal();
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
